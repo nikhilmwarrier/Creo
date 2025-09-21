@@ -20,8 +20,10 @@ public class DBHandle {
         try (Connection con = connect(); Statement s = con.createStatement()) {
             s.execute("PRAGMA foreign_keys=ON;");
             s.execute("CREATE TABLE IF NOT EXISTS Requests (ID INTEGER PRIMARY KEY, Method TEXT, URL TEXT, Headers TEXT, Body TEXT, Timestamp DATETIME DEFAULT current_timestamp);");
-            s.execute("CREATE TABLE IF NOT EXISTS Responses(ID INTEGER PRIMARY, Request_ID INTEGER, Status_Code INTEGER, Header TEXT, Body TEXT, Timestamp DATETIME DEFAULT current_timestamp, FOREIGN KEY(Request_ID), Summary TEXT);");
+            s.execute("CREATE TABLE IF NOT EXISTS Responses (ID INTEGER PRIMARY KEY, Request_ID INTEGER, Status_Code INTEGER, Headers TEXT, Body TEXT, Content_Type TEXT, Timestamp DATETIME DEFAULT current_timestamp, FOREIGN KEY(Request_ID) REFERENCES Requests(ID));");
+            System.out.println("✓ Database tables created successfully");
         } catch (SQLException e) {
+            System.out.println("❌ Database initialization error: " + e.getMessage());
             e.printStackTrace();
         }
     }

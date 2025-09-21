@@ -1,16 +1,16 @@
 import java.sql.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ResponsesDAO {
     public void insert(Response response) {
-        String query = "INSERT INTO Responses(Request_ID, Status_Code, Header, Body, Summary) VALUES(?, ?, ?, ?, ?);";
+        String query = "INSERT INTO Responses(Request_ID, Status_Code, Headers, Body, Content_Type) VALUES(?, ?, ?, ?, ?);";
         try (Connection con = DBHandle.connect() ; PreparedStatement p = con.prepareStatement(query)) {
             p.setInt(1, response.getRequestID());
             p.setInt(2, response.getStatusCode());
             p.setString(3, response.getHeaders());
             p.setString(4, response.getBody());
-            p.setString(5, response.getSummary()); // most likely null
+            p.setString(5, response.getSummary()); // Using summary field for content type
 
             p.executeUpdate();
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class ResponsesDAO {
                         r.getInt("Status_Code"),
                         r.getString("Headers"),
                         r.getString("Body"),
-                        r.getString("Summary"),
+                        r.getString("Content_Type"), // Updated to match database schema
                         r.getString("Timestamp")
                 );
             }
@@ -52,7 +52,7 @@ public class ResponsesDAO {
                         r.getInt("Status_Code"),
                         r.getString("Headers"),
                         r.getString("Body"),
-                        r.getString("Summary"),
+                        r.getString("Content_Type"), // Updated to match database schema
                         r.getString("Timestamp")
                 );
                 responses.add(res);
