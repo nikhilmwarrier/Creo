@@ -2,7 +2,6 @@ public class Request {
     private int ID;
     private String method, url, headers, body, timestamp;
 
-    // Setters (technically)
     public Request(int ID, String method, String url, String headers, String body, String timestamp) {
         this.ID = ID;
         this.method = method;
@@ -13,13 +12,10 @@ public class Request {
     }
 
     // Getters
-    public int getID() {return ID;}
-    public String getMethod() {return method;}
-    public String getUrl() {return url;}
-    public String getHeaders() {return headers;}
-    public String getBody() {return body;}
-    public String getTimestamp() {return timestamp;}
+    public int getID() { return ID; }
+    public String getMethod() { return method; }
+    public String getUrl() { return url; }
+    public String getHeaders() { return headers; }
+    public String getBody() { return body; }
+    public String getTimestamp() { return timestamp; }
 }
-
-
-

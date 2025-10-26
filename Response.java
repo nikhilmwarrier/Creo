@@ -1,23 +1,23 @@
 public class Response {
-    private int id, request_id, stat_code;
-    private String headers, body, summary, timestamp;
+    private int id, requestID, statusCode;
+    private String headers, body, contentType, timestamp;
 
-    public Response(int id, int request_id, int stat_code, String headers, String body, String summary, String timestamp) {
+    public Response(int id, int requestID, int statusCode, String headers, String body, String contentType, String timestamp) {
         this.id = id;
-        this.request_id = request_id;
-        this.stat_code = stat_code;
+        this.requestID = requestID;
+        this.statusCode = statusCode;
         this.headers = headers;
         this.body = body;
-        this.summary = summary;
+        this.contentType = contentType;
         this.timestamp = timestamp;
     }
 
     // Getters
-    public int getID() { return id;}
-    public int getRequestID() { return request_id; }
-    public int getStatusCode() { return stat_code; }
+    public int getID() { return id; }
+    public int getRequestID() { return requestID; }
+    public int getStatusCode() { return statusCode; }
     public String getHeaders() { return headers; }
     public String getBody() { return body; }
-    public String getSummary() { return summary; }
+    public String getContentType() { return contentType; }
     public String getTimestamp() { return timestamp; }
 }
