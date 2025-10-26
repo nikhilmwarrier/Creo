@@ -549,7 +549,7 @@ public class SimpleHTTPClientUI extends JFrame {
 
     private void updateResponseFields(HttpResponse response) {
         statusLabel.setText("Status: " + response.getStatusCode() + " " + response.getStatusText());
-        timeLabel.setText("Time: " + response.getDuration() + " ms");
+        timeLabel.setText("Time: " + response.getResponseTime() + " ms");
         sizeLabel.setText("Size: " + response.getBodySize() + " bytes");
         responseBodyArea.setText(response.getBody());
         responseHeadersArea.setText(formatResponseHeaders(response.getHeaders()));

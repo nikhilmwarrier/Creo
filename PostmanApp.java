@@ -50,7 +50,7 @@ public class PostmanApp {
         System.out.println("    Status: " + response.getStatusCode() + " " + response.getStatusText());
         System.out.println("    Content-Type: " + response.getContentType());
         System.out.println("    Response Size: " + response.getBodySize() + " bytes");
-        System.out.println("    Response Time: " + response.getDuration() + " ms");
+        System.out.println("    Response Time: " + response.getResponseTime() + " ms");
 
         if (response.getBody() != null && !response.getBody().isEmpty()) {
             String preview = response.getBody().length() > 100 ?
