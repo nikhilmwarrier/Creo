@@ -1,2 +1,4 @@
 *.class
 oop.db
+out
+.env

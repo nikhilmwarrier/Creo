@@ -41,24 +41,33 @@ Creo/
 
 ## How to Run
 
+### Set Groq API Key
+
+Add the following environment variable
+
+```bash
+GROQ_API_KEY=<your-api-key>
+```
+
 ### Compile
 
 ```bash
-# Compile all Java files with SQLite JDBC driver
-javac -cp "lib/sqlite-jdbc-3.50.3.0.jar;." backend/*.java *.java
+javac -d out/production/Creo -cp "lib/*" *.java
+
+# Or with the Just task runner
+just build
 ```
 
 ### Run Application
 
 ```bash
-# Run the main app
-java -cp "lib/sqlite-jdbc-3.50.3.0.jar;." PostmanApp
+java -cp "out/production/Creo:lib/*" SimpleHTTPClientUI
 
-# Or run the simple UI directly
-java -cp "lib/sqlite-jdbc-3.50.3.0.jar;." SimpleHTTPClientUI
+# Or with the Just task runner
+just run
 ```
 
-> Note: On Linux/macOS, replace `;` with `:` in the classpath.
+> Note: On Windows, replace `:` with `;` in the classpath.
 
 ---
 
